@@ -2,7 +2,19 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=400, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+(function () {
+  function ajustar() {
+    var ancho = window.innerWidth;
+    var tactil = window.matchMedia('(pointer: coarse)').matches;
+    var z = (tactil && ancho > 440 && ancho <= 1000) ? ancho / 400 : 1;
+    document.documentElement.style.zoom = (z === 1) ? '' : String(z);
+  }
+  ajustar();
+  window.addEventListener('resize', ajustar);
+})();
+</script>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#3a6fb7">
 <title>Subir fotos</title>
